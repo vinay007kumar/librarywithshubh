@@ -5,11 +5,12 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('books/', views.BooksList.as_view()),
-    path('books/<int:pk>', views.BooksDetail.as_view()),
+    path('', views.api_root),
+    path('books/', views.BooksList.as_view(), name='books-list'),
+    path('books/<int:pk>', views.BooksDetail.as_view(), name='books-detail'),
     
-    path('users/', views.UserList.as_view()),
-    path('users/<int:pk>/', views.UserDetail.as_view()),
+    path('users/', views.UserList.as_view(), name='user-list'),
+    path('users/<int:pk>/', views.UserDetail.as_view(), name='user-detail'),
 
 ]
 urlpatterns += [
